@@ -4,25 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>⛏️ 七矮人礦工天氣</title>
-    <link rel="icon" type="image/png" href="./miner-icon.png"> 
-    <link rel="apple-touch-icon" href="./miner-icon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="./miner-icon.png">
+    <title>🍎 白雪公主的魔鏡天氣預言</title>
+    <link rel="icon" type="image/png" href="./apple-icon.png"> 
+    <link rel="apple-touch-icon" href="./apple-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-icon.png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=swap"
         rel="stylesheet">
 
     <style>
-        /* ⛏️ 七個小矮人風格顏色變數 💎 */
+        /* 🍎 白雪公主風格顏色變數 👑 */
         :root {
-            --dwarf-green: #38761D; /* 苔蘚綠/森林綠 */
-            --dwarf-wood: #704214; /* 樹木棕色 */
-            --dwarf-yellow: #FFC000; /* 礦工燈光/金礦黃 */
-            --dwarf-white: #FFFAFA; /* 雪白或寶石反光 */
-            --dwarf-mine-blue: #4A6C8C; /* 礦石藍/深藍 */
-            --dwarf-dark: #2C2C2C; /* 煤炭黑/岩石黑 */
-            --dwarf-card-bg: #F0F5E6; /* 淺米白 (像是礦工飯盒或木板) */
+            --forest-green: #38761D; /* 苔蘚綠/森林綠 (小矮人) */
+            --wood-cabin-brown: #704214; /* 木屋棕色 (小矮人) */
+            --jewel-gold: #FFC000; /* 金礦黃/皇冠金 (小矮人/皇后) */
+            --snow-white-dress: #FFFAFA; /* 雪白色 (公主) */
+            --prince-blue: #4A6C8C; /* 王子藍/礦石藍 (礦工/王子) */
+            --queens-dark: #2C2C2C; /* 皇后的陰影/煤炭黑 */
+            --magic-mirror-bg: #EAF2F8; /* 魔鏡的霧面光澤 */
+            --apple-red: #C5221F; /* 毒蘋果紅 */
         }
 
         * {
@@ -33,13 +35,13 @@
         }
 
         body {
-            font-family: 'Zen Maru Gothic', sans-serif;
-            background-color: var(--dwarf-green); /* 主背景色改成苔蘚綠 */
-            /* 森林木紋背景 (簡單的條紋) */
+            font-family: "LiHei Pro", sans-serif;
+            background-color: var(--forest-green); /* 主背景色改成森林綠 */
+            /* 森林木紋背景 */
             background-image:
                 repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(0, 0, 0, 0.1) 20px, rgba(0, 0, 0, 0.1) 40px);
             min-height: 100vh;
-            color: var(--dwarf-dark);
+            color: var(--queens-dark);
             overflow-x: hidden;
             padding-bottom: 20px;
         }
@@ -50,7 +52,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
-            background: rgba(255, 255, 255, 0.4); /* 霧氣感 */
+            background: rgba(255, 255, 255, 0.6); /* 霧氣感/古書頂部 */
             backdrop-filter: blur(8px);
             position: sticky;
             top: 0;
@@ -58,18 +60,18 @@
         }
 
         .location-pill {
-            background: var(--dwarf-yellow); /* 礦工燈光黃 */
-            color: var(--dwarf-wood);
+            background: var(--jewel-gold); /* 皇冠金 */
+            color: var(--wood-cabin-brown);
             padding: 5px 15px;
             border-radius: 20px;
             font-weight: 900;
             font-size: 1.1rem;
-            border: 4px solid var(--dwarf-wood);
+            border: 4px solid var(--wood-cabin-brown);
         }
 
         .update-pill {
             font-size: 0.8rem;
-            color: var(--dwarf-white);
+            color: var(--snow-white-dress);
             background: rgba(0, 0, 0, 0.4);
             padding: 4px 10px;
             border-radius: 12px;
@@ -81,14 +83,14 @@
             margin: 0 auto;
         }
 
-        /* === 核心：今日焦點卡片 (木屋的窗戶) === */
+        /* === 核心：今日焦點卡片 (魔鏡或小木屋窗戶) === */
         .hero-card {
-            background: var(--dwarf-card-bg); /* 淺色背景 */
+            background: var(--magic-mirror-bg); /* 魔鏡的霧面光澤 */
             border-radius: 35px;
             padding: 30px 25px;
             text-align: center;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            border: 6px dashed var(--dwarf-wood); /* 粗獷的木板邊框 */
+            border: 6px dashed var(--queens-dark); /* 皇后的黑暗邊框 */
             margin-bottom: 25px;
             position: relative;
         }
@@ -99,12 +101,12 @@
             top: -15px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--dwarf-mine-blue); /* 礦石藍 */
-            color: var(--dwarf-white);
+            background: var(--prince-blue); /* 王子藍 */
+            color: var(--snow-white-dress);
             padding: 5px 20px;
             border-radius: 20px;
             font-weight: bold;
-            border: 3px solid var(--dwarf-dark);
+            border: 3px solid var(--queens-dark);
         }
 
         .hero-temp-container {
@@ -118,28 +120,31 @@
         .hero-icon {
             font-size: 5rem;
             filter: drop-shadow(0 4px 0 rgba(0, 0, 0, 0.1));
-            animation: mine-shake 0.5s infinite alternate; /* 模擬挖礦的晃動 */
+            animation: magic-sparkle 1s infinite alternate; /* 模擬魔法閃爍 */
         }
 
-        @keyframes mine-shake {
+        @keyframes magic-sparkle {
             0% {
-                transform: rotate(-3deg);
+                transform: scale(1);
+                filter: brightness(1.1);
             }
+
             100% {
-                transform: rotate(3deg);
+                transform: scale(1.03);
+                filter: brightness(0.95);
             }
         }
 
         .hero-temp {
             font-size: 4.5rem;
             font-weight: 900;
-            color: var(--dwarf-wood); /* 溫度數字使用木棕色 */
+            color: var(--wood-cabin-brown); /* 溫度數字使用木棕色 */
             line-height: 1;
         }
 
         .hero-desc {
             font-size: 1.5rem;
-            color: var(--dwarf-mine-blue); /* 描述使用礦石藍 */
+            color: var(--prince-blue); /* 描述使用王子藍 */
             margin-bottom: 20px;
             font-weight: bold;
         }
@@ -151,17 +156,17 @@
             gap: 15px;
             margin-top: 20px;
             padding-top: 20px;
-            border-top: 3px solid var(--dwarf-dark); /* 堅固的岩石分隔線 */
+            border-top: 3px solid var(--queens-dark); /* 堅固的岩石分隔線 */
         }
 
         .advice-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            background: var(--dwarf-yellow); /* 警告黃/燈光色 */
+            background: var(--jewel-gold); /* 警告黃/燈光色 */
             padding: 10px;
             border-radius: 20px;
-            border: 3px solid var(--dwarf-dark);
+            border: 3px solid var(--queens-dark);
         }
 
         .advice-icon {
@@ -172,19 +177,19 @@
         .advice-text {
             font-size: 1.4rem;
             font-weight: 900;
-            color: var(--dwarf-dark);
+            color: var(--queens-dark);
             margin: 5px 0;
             line-height: 1.2;
         }
 
-        /* === 稍後預報：礦道預覽區 === */
+        /* === 稍後預報：魔鏡預覽區 === */
         .section-title {
             font-size: 1.2rem;
-            color: var(--dwarf-yellow); /* 礦工燈的黃光照亮標題 */
+            color: var(--jewel-gold); /* 皇冠金照亮標題 */
             margin-bottom: 15px;
             margin-left: 10px;
             font-weight: 900;
-            text-shadow: 2px 2px 0 var(--dwarf-dark);
+            text-shadow: 2px 2px 0 var(--queens-dark);
         }
 
         .scroll-container {
@@ -202,17 +207,17 @@
 
         .mini-card {
             min-width: 140px;
-            background: var(--dwarf-white);
+            background: var(--snow-white-dress);
             border-radius: 25px;
             padding: 20px 15px;
             text-align: center;
-            border: 3px solid var(--dwarf-mine-blue); /* 寶石藍邊框 */
+            border: 3px solid var(--prince-blue); /* 王子藍邊框 */
             flex-shrink: 0;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .mini-time {
-            background: var(--dwarf-green); /* 森林綠標籤 */
+            background: var(--forest-green); /* 森林綠標籤 */
             color: white;
             padding: 3px 10px;
             border-radius: 10px;
@@ -230,17 +235,17 @@
         .mini-temp {
             font-size: 1.2rem;
             font-weight: 800;
-            color: var(--dwarf-dark);
+            color: var(--queens-dark);
         }
 
-        /* Loading 畫面 */
-        .loading-screen {
+        /* Loading 畫面 (皇后的詛咒/礦坑深處的黑暗) */
+        .evil-queens-curse {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: var(--dwarf-dark); /* 礦坑內的黑暗 */
+            background: var(--queens-dark); /* 礦坑內的黑暗 */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -251,141 +256,160 @@
 </head>
 
 <body>
-    <div id="loading" class="loading-screen">
-        <div style="font-size: 4rem; animation: mine-shake 0.5s infinite alternate;">⛏️</div>
-        <p style="color: var(--dwarf-yellow); font-weight: bold; margin-top: 20px;">
-            💎 正在敲打寶石，請稍候... 🔨
+    <div id="loading" class="evil-queens-curse">
+        <div style="font-size: 4rem; animation: magic-sparkle 1s infinite alternate;">🍎</div>
+        <p style="color: var(--jewel-gold); font-weight: bold; margin-top: 20px;">
+            🔮 魔鏡正在準備預言，請稍候... ✨
         </p>
     </div>
+
     <div class="status-bar">
         <div class="location-pill">🌳 桃園市</div>
         <div id="updateTime" class="update-pill">更新中...</div>
     </div>
 
-    <div class="container" id="mainContent" style="display: none;">
+    <div class="container" id="kingdomView" style="display: none;">
 
         <div id="heroCard">
         </div>
 
-        <h3 class="section-title">下一條礦道預報</h3>
-        <div class="scroll-container" id="futureForecasts">
+        <h3 class="section-title">🔮 魔鏡的下一刻預言</h3>
+        <div class="scroll-container" id="magicMirrorScroll">
         </div>
 
     </div>
 
     <script>
-        // 注意：API 仍指向高雄 (kaohsiung)，若需要桃園資料，應更改 API_URL
-        const API_URL = "https://tao-weather.zeabur.app/api/weather/kaohsiung";
+        // /*
+        //  * 魔鏡啊魔鏡，請告訴我，
+        //  * 這片大地的天氣是否美麗如初，
+        //  * 讓我的應用程式永遠順暢無阻。
+        // */
 
-        function getWeatherIcon(weather) {
-            // 替換天氣圖示為礦坑/森林風格圖示
-            if (!weather) return "🌲";
-            if (weather.includes("晴")) return "☀️";
-            if (weather.includes("多雲")) return "🌥️";
-            if (weather.includes("陰")) return "⛰️"; // 陰天像是山洞或岩石
-            if (weather.includes("雨")) return "💧"; // 雨水在礦坑不吉利
+        const API_URL = "https://tao-weather.zeabur.app/api/weather/kaohsiung"; 
+
+        // 🔮 魔法咒語：判斷天空的狀態並召喚圖示
+        function summonSkyIcon(weather) { 
+            if (!weather) return "🌳"; // 默認為森林
+            if (weather.includes("晴")) return "✨"; // 晴天是魔法的光芒
+            if (weather.includes("多雲")) return "🌥️"; // 雲朵
+            if (weather.includes("陰")) return "🏰"; // 陰天是皇后的城堡陰影
+            if (weather.includes("雨")) return "💧"; // 雨是公主的眼淚
             if (weather.includes("雷")) return "💣"; // 像是在洞裡爆破
-            return "🌳";
+            if (weather.includes("雪")) return "❄️"; // 冰雪
+            return "🍎"; // 意料之外的天氣：毒蘋果？
         }
 
-        function getAdvice(rainProb, maxTemp) {
-            let rainIcon = "🍎"; // 白雪公主的蘋果
-            let rainText = "沒有毒蘋果";
-            // 降雨/礦坑淹水警告
+        // 🔨 小矮人的生活指南：給出挖礦與服裝建議
+        function consultDwarves(rainProb, maxTemp) { 
+            let rainIcon = "🍄"; // 蘑菇
+            let rainText = "森林漫步去";
+            
+            // 降雨/活動建議 (降雨機率 > 30%)
             if (parseInt(rainProb) > 30) {
-                rainIcon = "🚧"; // 停止挖礦！
-                rainText = "礦道濕滑！";
+                rainIcon = "☂️"; // 雨傘
+                rainText = "帶上雨傘，優雅地走";
             }
 
-            let clothIcon = "🍄";
-            let clothText = "帽子穿好！"; // 小矮人總戴帽子
+            let clothIcon = "👗"; // 裙裝
+            let clothText = "適合跳舞的輕便裙子"; 
+            
             // 服裝/溫度建議
-            if (parseInt(maxTemp) >= 28) {
-                clothIcon = "😵";
-                clothText = "太熱，快回家！"; // 矮人喜歡陰涼
-            } else if (parseInt(maxTemp) <= 20) {
-                clothIcon = "🔥";
-                clothText = "需要壁爐！";
+            if (parseInt(maxTemp) >= 30) {
+                clothIcon = "☀️";
+                clothText = "待在城堡裡享受涼爽"; // 太熱，在城堡裡
+            } else if (parseInt(maxTemp) >= 22) {
+                clothIcon = "💃";
+                clothText = "適合跳舞的輕便裙子"; 
+            } else if (parseInt(maxTemp) >= 15) {
+                clothIcon = "🧣";
+                clothText = "披上溫暖的披肩";
+            } else if (parseInt(maxTemp) <= 10) {
+                clothIcon = "🥶";
+                clothText = "需要壁爐取暖！";
             }
 
             return { rainIcon, rainText, clothIcon, clothText };
         }
 
-        function getTimePeriod(startTime) {
+        function determineTaleChapter(startTime) {
             const hour = new Date(startTime).getHours();
-            if (hour >= 5 && hour < 11) return "去挖礦囉";
-            if (hour >= 11 && hour < 14) return "敲飯盒時間";
-            if (hour >= 14 && hour < 18) return "努力工作中";
-            if (hour >= 18 && hour < 23) return "木屋晚餐";
-            return "噓...睡覺囉";
+            if (hour >= 5 && hour < 11) return "早晨";
+            if (hour >= 11 && hour < 14) return "中午";
+            if (hour >= 14 && hour < 18) return "下午";
+            if (hour >= 18 && hour < 23) return "晚上";
+            return "深夜"; 
         }
 
-        function renderWeather(data) {
-            const forecasts = data.forecasts;
-            const current = forecasts[0];
-            const others = forecasts.slice(1);
+        // 📖 核心函數：魔鏡顯示預言
+        function revealMagicMirrorPrediction(data) {
+            const prophecies = data.forecasts;
+            const currentProphecy = prophecies[0];
+            const futureProphecies = prophecies.slice(1);
 
-            // 1. 渲染 Hero Card (主畫面)
-            const advice = getAdvice(current.rain, current.maxTemp);
-            const period = getTimePeriod(current.startTime);
-            const avgTemp = Math.round((parseInt(current.maxTemp) + parseInt(current.minTemp)) / 2);
+            // 1. 渲染 Hero Card (主畫面 - 魔鏡)
+            const advice = consultDwarves(currentProphecy.rain, currentProphecy.maxTemp);
+            const chapter = determineTaleChapter(currentProphecy.startTime);
+            const avgTemp = Math.round((parseInt(currentProphecy.maxTemp) + parseInt(currentProphecy.minTemp)) / 2);
 
-            let mainIcon = getWeatherIcon(current.weather);
+            let mainIcon = summonSkyIcon(currentProphecy.weather);
+            
             // 如果溫度低，顯示冰凍或寒冷
-            if (avgTemp <= 10 && !current.weather.includes("晴")) {
-                mainIcon = "🥶";
-            } else if (avgTemp <= 15 && !current.weather.includes("晴")) {
-                mainIcon = "💨";
+            if (avgTemp <= 10 && !currentProphecy.weather.includes("晴")) {
+                mainIcon = "❄️"; // 冰雪
+            } else if (avgTemp <= 15 && !currentProphecy.weather.includes("晴")) {
+                mainIcon = "💨"; // 寒風
             }
             
 
             document.getElementById('heroCard').innerHTML = `
                 <div class="hero-card">
-                    <div class="hero-period">${period}</div>
+                    <div class="hero-period">${chapter}</div>
                     <div class="hero-temp-container">
                         <div class="hero-icon">${mainIcon}</div>
                         <div class="hero-temp">${avgTemp}°</div>
                     </div>
-                    <div class="hero-desc">⛏️ ${current.weather}</div> <div class="advice-grid">
+                    <div class="hero-desc">🍎 公主，這是現在的預言：${currentProphecy.weather}</div> 
+                    <div class="advice-grid">
                         <div class="advice-item">
                             <div class="advice-icon">${advice.rainIcon}</div>
                             <div class="advice-text">${advice.rainText}</div>
-                            <div style="font-size:0.7rem; color:#999">積水機率 ${current.rain}</div>
+                            <div style="font-size:0.7rem; color:#999">公主眼淚機率 ${currentProphecy.rain}</div>
                         </div>
                         <div class="advice-item">
                             <div class="advice-icon">${advice.clothIcon}</div>
                             <div class="advice-text">${advice.clothText}</div>
-                            <div style="font-size:0.7rem; color:#999">礦坑熱度 ${current.maxTemp}°</div>
+                            <div style="font-size:0.7rem; color:#999">小木屋熱度 ${currentProphecy.maxTemp}°</div>
                         </div>
                     </div>
                 </div>
             `;
 
-            // 2. 渲染稍後預報 (包含明天判斷)
-            const scrollContainer = document.getElementById('futureForecasts');
+            // 2. 渲染稍後預報 (未來幾小時/明天)
+            const scrollContainer = document.getElementById('magicMirrorScroll');
             scrollContainer.innerHTML = '';
 
             const todayDate = new Date().getDate();
 
-            others.forEach(f => {
-                let p = getTimePeriod(f.startTime);
+            futureProphecies.forEach(f => {
+                let chapterTitle = determineTaleChapter(f.startTime); 
                 const fDate = new Date(f.startTime);
                 if (fDate.getDate() !== todayDate) {
-                    p = "✨ 明天" + p;
+                    chapterTitle = "🌌 明日" + chapterTitle; // 明天的預言
                 }
 
-                let miniIcon = getWeatherIcon(f.weather);
+                let miniIcon = summonSkyIcon(f.weather);
                 const miniAvgTemp = Math.round((parseInt(f.maxTemp) + parseInt(f.minTemp)) / 2);
 
                 if (miniAvgTemp <= 10 && !f.weather.includes("晴")) {
-                    miniIcon = "🥶";
+                    miniIcon = "❄️";
                 } else if (miniAvgTemp <= 15 && !f.weather.includes("晴")) {
                     miniIcon = "💨";
                 }
 
                 scrollContainer.innerHTML += `
                             <div class="mini-card">
-                                <div class="mini-time">${p}</div>
+                                <div class="mini-time">${chapterTitle}</div>
                                 <div class="mini-icon">${miniIcon}</div>
                                 <div class="mini-temp">${f.minTemp}° - ${f.maxTemp}°</div>
                                 <div style="font-size:0.8rem; color:#888; margin-top:5px;">💧${f.rain}</div>
@@ -397,13 +421,14 @@
             const now = new Date();
             const month = now.getMonth() + 1;
             const date = now.getDate();
-            const dayIndex = now.getDay();
-            const days = ["週日", "週一", "週二", "週三", "週四", "週五", "週六"];
+            // const dayIndex = now.getDay();
+            // const days = ["週日", "週一", "週二", "週三", "週四", "週五", "週六"];
 
             document.getElementById('updateTime').textContent = `${month}月${date}日 🍎`;
         }
 
-        async function fetchWeather() {
+        // ⚔️ 召喚王子的力量來讀取天氣數據
+        async function summonPrincesAid() {
             try {
                 // 1. 定義「最低等待時間」：1500 毫秒 (1.5秒)
                 const delayPromise = new Promise(resolve => setTimeout(resolve, 1500));
@@ -414,22 +439,27 @@
                 // 3. Promise.all 會等待「兩個都完成」才會往下走
                 const [_, json] = await Promise.all([delayPromise, fetchPromise]);
 
+                // 4. 抓取到數據後，調用魔鏡顯示預言
                 if (json.success) {
-                    renderWeather(json.data);
+                    revealMagicMirrorPrediction(json.data);
 
-                    // 資料處理好後，隱藏 Loading，顯示主畫面
+                    // 魔法解除，顯示森林木屋
                     document.getElementById('loading').style.display = 'none';
-                    document.getElementById('mainContent').style.display = 'block';
+                    document.getElementById('kingdomView').style.display = 'block';
                 } else {
-                    throw new Error("API Error");
+                    // 如果 API 失敗，拋出錯誤
+                    throw new Error("API Error: Evil Queen's Blockade");
                 }
             } catch (e) {
                 console.error(e);
                 alert("毒皇后下了詛咒，天氣資料讀取失敗了！");
+                // 即使失敗，也要隱藏 loading 畫面，避免卡住
+                document.getElementById('loading').style.display = 'none';
             }
         }
 
-        document.addEventListener("DOMContentLoaded", fetchWeather);
+        // 啟動童話的儀式
+        document.addEventListener("DOMContentLoaded", summonPrincesAid);
     </script>
 </body>
 
